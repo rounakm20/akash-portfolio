@@ -338,7 +338,7 @@ export default function Hero({ setRef, onWatchReel, runningTC }) {
               opacity: 0.65,
             }}
           >
-            I'm Akash Verma — I edit and grade footage into content people actually stop
+            I'm Akash Singh — I edit and grade footage into content people actually stop
             scrolling for. Shorts, reels, brand campaigns and full-length YouTube videos, cut
             for rhythm and built for the screen they'll be watched on.
           </p>

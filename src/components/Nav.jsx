@@ -5,7 +5,7 @@ export default function Nav({ active, progressPct, runningTC, onNavigate, setRef
     <div className="avp-nav">
       <div className="avp-nav-inner">
         <a className="avp-logo" onClick={() => onNavigate("home")} style={{ cursor: "pointer" }}>
-          AKASH<span>.</span>VERMA
+          AKASH<span>.</span>SINGH
         </a>
         <div className="avp-track-wrap">
           <div className="avp-track">
