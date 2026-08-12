@@ -1,3 +1,11 @@
+import shivamVideo from "../assets/clients/shivam.mp4";
+import muskaanVideo from "../assets/clients/muskaan.mp4";
+import avinashVideo from "../assets/clients/avinash.mp4";
+import realestateVideo from "../assets/clients/realestate.mp4";
+
+import aviPhoto from "../assets/clients/avi.png";
+import shivamPhoto from "../assets/clients/shivam.jpeg";
+
 /* ============================= DESIGN TOKENS ============================= */
 export const COTTON   = "#EDEBDD";
 export const CHERRY   = "#810100";
@@ -61,31 +69,26 @@ export const EDITS = [
     id: "e1",
     title: "horror short yt video",
     client: "Shivam Singh",
-    
-    url: "/src/assets/clients/shivam.mp4",
+    url: shivamVideo,
   },
   {
     id: "e2",
     title: "Product Launch Reel",
     client: "Nova Skincare",
-    
-    url: "/src/assets/clients/muskaan.mp4",
+    url: muskaanVideo,
   },
   {
     id: "e3",
     title: "Short yt video",
     client: "Avinash Kumar",
-   
-    url: "/src/assets/clients/avinash.mp4",
+    url: avinashVideo,
   },
   {
     id: "e4",
     title: "Real Estate Promo",
     client: "realestate",
-   
-    url: "/src/assets/clients/realestate.mp4",
+    url: realestateVideo,
   },
-  
 ];
 
 export const CLIENTS = [
@@ -94,16 +97,16 @@ export const CLIENTS = [
     handle: "@astheticavi",
     url: "https://www.youtube.com/@astheticavi",
     tape: "C001",
-    photo: "/src/assets/clients/avi.png", 
-    video: "/src/assets/clients/avinash.mp4",
+    photo: aviPhoto,
+    video: avinashVideo,
   },
   {
     name: "Shivam Singh",
     handle: "@shivamison1",
     url: "https://www.youtube.com/@shivamison1",
     tape: "C002",
-    photo: "/src/assets/clients/shivam.jpeg", 
-    video: "/src/assets/clients/shivam.mp4", // e.g. "https://www.youtube.com/watch?v=xxxxxxxx"
+    photo: shivamPhoto,
+    video: shivamVideo,
   },
 ];
 
