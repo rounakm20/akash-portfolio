@@ -213,6 +213,7 @@ export default function Hero({ setRef, onWatchReel, runningTC }) {
     <section
       ref={setRef}
       data-section="home"
+      className="avp-hero-section"
       style={{
         height: "100dvh",
         maxHeight: "100dvh",
@@ -223,7 +224,54 @@ export default function Hero({ setRef, onWatchReel, runningTC }) {
         color: COTTON,
       }}
     >
+      {/*
+        Mobile-only overrides. Desktop rules are untouched (no @media wrapper
+        applies below 768px only), so on screens > 768px this block does
+        nothing and PC layout stays exactly as before.
+
+        On mobile: the section stops being a hard 100dvh box (that height,
+        combined with a big heading + full-height photo, was what caused
+        content to get clipped/overlap), the grid stacks text-then-photo,
+        the photo gets a sane fixed height instead of min(70dvh,560px), and
+        the heading/body/button sizes come down a notch.
+      */}
+      <style>{`
+        @media (max-width: 768px) {
+          .avp-hero-section {
+            height: auto !important;
+            max-height: none !important;
+            overflow: visible !important;
+            padding: 6.5rem 0 3rem !important;
+          }
+          .avp-hero-grid {
+            grid-template-columns: 1fr !important;
+            gap: 2.25rem !important;
+          }
+          .avp-hero-photo-wrap {
+            order: -1;
+            width: 100% !important;
+            height: 62vw !important;
+            max-height: 320px !important;
+            min-height: 220px !important;
+          }
+          .avp-hero-heading {
+            font-size: clamp(2.1rem, 11vw, 2.8rem) !important;
+          }
+          .avp-hero-body {
+            font-size: 0.92rem !important;
+          }
+          .avp-hero-cta-row {
+            gap: 1rem !important;
+          }
+          .avp-hero-cta-btn {
+            padding: 0.6rem 1.15rem !important;
+            font-size: 0.8rem !important;
+          }
+        }
+      `}</style>
+
       <div
+        className="avp-hero-grid"
         style={{
           width: "100%",
           maxWidth: "1280px",
@@ -254,6 +302,7 @@ export default function Hero({ setRef, onWatchReel, runningTC }) {
           </div>
 
           <h1
+            className="avp-hero-heading"
             style={{
               fontSize: "clamp(2.4rem, 5.2vw, 4.4rem)",
               fontWeight: 900,
@@ -279,6 +328,7 @@ export default function Hero({ setRef, onWatchReel, runningTC }) {
           </h1>
 
           <p
+            className="avp-hero-body"
             style={{
               marginTop: "1.5rem",
               maxWidth: "34rem",
@@ -294,6 +344,7 @@ export default function Hero({ setRef, onWatchReel, runningTC }) {
           </p>
 
           <div
+            className="avp-hero-cta-row"
             style={{
               marginTop: "2rem",
               display: "flex",
@@ -303,6 +354,7 @@ export default function Hero({ setRef, onWatchReel, runningTC }) {
             }}
           >
             <button
+              className="avp-hero-cta-btn"
               onClick={onWatchReel}
               style={{
                 display: "flex",
@@ -360,7 +412,7 @@ export default function Hero({ setRef, onWatchReel, runningTC }) {
           </div>
         </div>
 
-        <div style={{ width: "100%", height: "min(70dvh, 560px)" }}>
+        <div className="avp-hero-photo-wrap" style={{ width: "100%", height: "min(70dvh, 560px)" }}>
           <HeroPhoto />
         </div>
       </div>

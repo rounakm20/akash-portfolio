@@ -104,6 +104,49 @@ export default function About({ setRef }) {
         padding: "clamp(3rem, 6vw, 5rem) 0",
       }}
     >
+      {/*
+        Mobile-only overrides. Desktop rules are untouched (no @media wrapper),
+        so on screens > 768px this block does nothing and PC layout stays
+        exactly as before. Below 768px, the grid stacks, the reel gets a
+        capped height, and text/stat sizes shrink a bit.
+      */}
+      <style>{`
+        @media (max-width: 768px) {
+          .avp-about-grid {
+            grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+          }
+          .avp-about-reel-wrap {
+            aspect-ratio: auto !important;
+            height: 62vw !important;
+            max-height: 340px !important;
+          }
+          .avp-about-heading {
+            font-size: clamp(1.4rem, 6vw, 1.9rem) !important;
+          }
+          .avp-about-stats {
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 0.75rem !important;
+          }
+          .avp-about-stats > div > div:first-child {
+            font-size: 1.25rem !important;
+          }
+          .avp-about-skills {
+            gap: 0.45rem !important;
+          }
+          .avp-about-skills span {
+            padding: 0.35rem 0.7rem !important;
+            font-size: 0.72rem !important;
+          }
+        }
+
+        @media (max-width: 420px) {
+          .avp-about-stats {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
+      `}</style>
+
       <div
         style={{
           width: "100%",
@@ -129,6 +172,7 @@ export default function About({ setRef }) {
         </div>
 
         <div
+          className="avp-about-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "0.9fr 1.1fr",
@@ -138,6 +182,7 @@ export default function About({ setRef }) {
         >
           {/* left: the reel, front and center, full brightness */}
           <div
+            className="avp-about-reel-wrap"
             style={{
               width: "100%",
               aspectRatio: "4 / 5",
@@ -152,6 +197,7 @@ export default function About({ setRef }) {
           {/* right: copy, stats, skills */}
           <div>
             <h2
+              className="avp-about-heading"
               style={{
                 fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
                 fontWeight: 900,
@@ -180,6 +226,7 @@ export default function About({ setRef }) {
             ))}
 
             <div
+              className="avp-about-stats"
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(auto-fit, minmax(110px, 1fr))",
@@ -199,7 +246,7 @@ export default function About({ setRef }) {
               ))}
             </div>
 
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem" }}>
+            <div className="avp-about-skills" style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem" }}>
               {SKILLS.map((s) => (
                 <span
                   key={s}
